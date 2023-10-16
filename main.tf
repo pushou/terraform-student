@@ -1,15 +1,3 @@
-terraform {
-  required_providers {
-    libvirt = {
-      source = "dmacvicar/libvirt"
-    }
-  }
-}
-
-provider "libvirt" {
-  uri = "qemu:///system"
-}
-
 resource "libvirt_volume" "distro-qcow2" {
   count  = var.hosts
   name   = "${var.distros[count.index]}.qcow2"
